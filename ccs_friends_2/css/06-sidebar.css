@@ -1,1 +1,63 @@
 /* PHASE 0: Sidebar */
+.profile-picture{
+    position: relative;
+    display: block;
+    margin-top: -125px;
+    z-index: 1;  
+    /* border-radius: 4%;
+    border: 1px solid black; */
+}
+
+.profile-picture > p{
+    display: block;
+    background-color: limegreen;
+    position: absolute;
+    top: 6px;
+    left: -15px;
+    transform: rotate(-35deg);
+    font-weight: bold;
+    color: white;
+    padding-left: 20px;
+    padding-right: 35px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 1px 1px 2px black;
+    font-size: x-small;
+    letter-spacing: 1px;
+    overflow: auto;
+}
+.profile-picture > img{
+    border-radius: 4%;
+    border: 1px solid black;
+}
+
+.profile-info > h2{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.profile-nav > p{
+    font-weight: bold;
+}
+
+.profile-nav{
+  font-weight: bold;
+}
+
+.profile-nav li{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    border-bottom: 1px solid lightgrey;
+}
+
+.profile-nav li:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.profile-nav > li:first-child{ 
+    border-top: 1px solid lightgrey;
+}
+
+
