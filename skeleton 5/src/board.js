@@ -77,12 +77,39 @@ Board.prototype.getPiece = function (pos) {
  * matches a given color.
  */
 Board.prototype.isMine = function (pos, color) {
+  let i = pos[0];
+  let j = pos[1];
+  if (this.isValidPos(pos)){
+    let pieceOnBoard = this.grid[i][j];
+
+    if (pieceOnBoard === undefined){
+      return undefined;
+    }
+    else if (pieceOnBoard.color === color){ 
+      return true;
+    }
+    else if (pieceOnBoard.color != color){
+      return false;
+    }
+  }
 };
 
 /**
  * Checks if a given position has a piece on it.
  */
 Board.prototype.isOccupied = function (pos) {
+  let i = pos[0];
+  let j = pos[1];
+  // debugger
+  if (this.isValidPos(pos)){
+    let pieceOnBoard = this.grid[i][j];
+    if (pieceOnBoard === undefined){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
 };
 
 /**
@@ -99,6 +126,53 @@ Board.prototype.isOccupied = function (pos) {
  * Returns empty array if no pieces of the opposite color are found.
  */
 Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
+
+  if (piecesToFlip) {
+    // debugger
+    piecesToFlip.push(pos);
+  } else {
+    // debugger
+    piecesToFlip = [];
+  }
+
+  let [i, j] = pos
+  let newPos = [i + dir[0], j+ dir[1]];
+  // i = pos[0], j = pos[1];
+
+  // when it hits the end of the board return arr
+  if (!this.isValidPos(newPos)){
+    // debugger
+    return [];
+  }
+  
+  //when it hits a undefind piece return arr
+  if (!this.isOccupied(newPos)){
+    // debugger
+    return [];
+  }
+
+  // when hits another piece of the same color retrun arr
+  if (this.isMine(newPos, color)){
+    // debugger
+    return piecesToFlip;
+  }
+  
+
+  //Recursive Steps
+  //move grid of pos to pos + dir 
+  // debugger
+  // piecesToFlip.push(newPos);
+  
+  // pos[0] += dir[0];
+  // pos[1] += dir[1];
+  // debugger
+  return this._positionsToFlip(newPos, color, dir, piecesToFlip);
+
+
+  // let newPos = pos;
+  // pos = newPos
+  
+
 };
 
 /**
