@@ -4,6 +4,7 @@
     display: block;
     margin-top: -125px;
     z-index: 1;  
+    overflow: hidden;
     /* border-radius: 4%;
     border: 1px solid black; */
 }
@@ -24,7 +25,7 @@
     box-shadow: 1px 1px 2px black;
     font-size: x-small;
     letter-spacing: 1px;
-    overflow: auto;
+    
 }
 .profile-picture > img{
     border-radius: 4%;
