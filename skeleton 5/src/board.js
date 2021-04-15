@@ -181,6 +181,11 @@ Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
  * color being flipped.
  */
 Board.prototype.validMove = function (pos, color) {
+  if ((this.isOccupied(pos)) && (this.isMine(pos, color))) {
+    return false;
+  } else {
+    return true; 
+  }
 };
 
 /**
